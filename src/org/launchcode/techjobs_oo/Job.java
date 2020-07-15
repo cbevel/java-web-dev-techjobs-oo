@@ -33,6 +33,17 @@ public class Job {
     // TODO: Add custom equals and hashCode methods. Consider two Job objects "equal" when their id fields
     //  match.
 
+
+    @Override
+    public String toString() {
+        return "\n"+ "ID:" + this.getId()
+                + "\n" + "Name:" + this.getName()
+                + "\n" + "Employer:" + this.getEmployer()
+                + "\n" + "Locations:"  + this.getLocation()
+                + "\n" + "Position Type:" + this.getPositionType()
+                + "\n" + "Core Competency:" + this.getCoreCompetency() + "\n";
+    }
+
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
@@ -56,7 +67,11 @@ public class Job {
 
 
         public String getName() {
-            return name;
+            if (name.equals("")) {
+                return "Data not available";
+            } else {
+                return name;
+            }
         }
 
         public void setName(String name) {
@@ -64,7 +79,11 @@ public class Job {
         }
 
         public Employer getEmployer() {
-            return employer;
+            if (employer.getValue().equals("")) {
+                return new Employer("Data not available");
+            } else {
+                return employer;
+            }
         }
 
         public void setEmployer(Employer employer) {
@@ -72,7 +91,12 @@ public class Job {
         }
 
         public Location getLocation() {
-            return location;
+            if (location.getValue().equals("")) {
+                return new Location("Data not available");
+
+            } else {
+                return location;
+            }
         }
 
         public void setLocation(Location location) {
@@ -80,7 +104,11 @@ public class Job {
         }
 
         public PositionType getPositionType() {
-            return positionType;
+            if (positionType.getValue().equals("")) {
+                return new PositionType("Data not available");
+            } else {
+                return positionType;
+            }
         }
 
         public void setPositionType(PositionType positionType) {
@@ -88,7 +116,11 @@ public class Job {
         }
 
         public CoreCompetency getCoreCompetency() {
-            return coreCompetency;
+            if (coreCompetency.getValue().equals("")) {
+                return new CoreCompetency("Data not available");
+            } else {
+                return coreCompetency;
+            }
         }
 
         public void setCoreCompetency(CoreCompetency coreCompetency) {
